@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>untuk bayi gede gwehhh❤️</title>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+    background: linear-gradient(135deg,#ff758c,#ff7eb3);
+    color:white;
+    text-align:center;
+    transition:1s;
+}
+
+/* LOGIN */
+#login{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+
+input{
+    padding:12px;
+    border:none;
+    border-radius:20px;
+    text-align:center;
+}
+
+button{
+    padding:12px 25px;
+    border:none;
+    border-radius:25px;
+    margin-top:15px;
+    font-weight:bold;
+}
+
+/* MAIN */
+#main{
+    display:none;
+    padding:30px 20px;
+    animation:fadeIn 1.5s;
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+.slideshow{
+    width:90%;
+    max-width:300px;
+    height:350px;
+    margin:20px auto;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+.slideshow img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+#yes{
+    background:#ff4b7d;
+    color:white;
+}
+
+#no{
+    background:white;
+    color:#ff4b7d;
+    position:relative;
+}
+
+#letter{
+    display:none;
+    margin-top:30px;
+    font-size:18px;
+    animation:fadeIn 2s;
+}
+
+.ring{
+    font-size:60px;
+    animation:pop 1s infinite alternate;
+}
+
+@keyframes pop{
+    from{transform:scale(1);}
+    to{transform:scale(1.2);}
+}
+</style>
+</head>
+
+<body>
+
+<div id="login">
+    <h2>Masukin nama onty di sini yaa 💌</h2>
+    <input type="text" id="password" placeholder="Nama kamu...">
+    <button onclick="checkLove()">Masuk ❤️</button>
+</div>
+
+<div id="main">
+    <h1>semoga suka ya onty ❤️</h1>
+
+    <div class="slideshow">
+        <img id="slide" src="foto kaka 1.jpeg">
+    </div>
+
+    <p id="message"></p>
+
+    <h3>be happy selamanya ya?onty 💖</h3>
+    <button id="yes" onclick="celebrate()">YES 💖</button>
+    <button id="no">NO 😜</button>
+
+    <div id="letter">
+        <div class="ring">💍</div>
+        <p>
+        Di hari valentine yang indah ini,  
+        tapi tetep kamu yang paling indah ko on wkwk.  
+        Semoga di anatara keriuhan bumi ini, izinkan aku untuk mengagumimu lebih lama ya? ❤️
+        </p>
+    </div>
+</div>
+
+<audio id="bgMusic" preload="auto" loop>
+    <source src="Sean Kingston Justin Bieber - Eenie Meenie.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// ===== EDIT =====
+let trueName="meta ardiana"; 
+let images=["foto kaka 1.jpeg","foto kaka 2.jpeg","foto kaka 3.jpeg"];
+// =================
+
+// LOGIN
+function checkLove(){
+    let input=document.getElementById("password").value.toLowerCase();
+    if(input===trueName){
+        document.getElementById("login").style.display="none";
+        document.getElementById("main").style.display="block";
+        document.getElementById("bgMusic").play().catch(()=>{});
+        typeWriter();
+    }else{
+        alert("sorry ya on itu bukan nama di hatiku 😜");
+    }
+}
+
+// SLIDESHOW
+let i=0;
+setInterval(function(){
+    i++;
+    if(i>=images.length){i=0;}
+    document.getElementById("slide").src=images[i];
+},3000);
+
+// TYPING
+let text="Bumi itu luas sekali ya, tapi untungnya kita bertemu, semoga di perjalanan yang panjang ini bahagia selalu yaa ❤️";
+let j=0;
+function typeWriter(){
+    if(j<text.length){
+        document.getElementById("message").innerHTML+=text.charAt(j);
+        j++;
+        setTimeout(typeWriter,40);
+    }
+}
+
+// NO BUTTON MOVE (iOS SAFE)
+let noBtn=document.getElementById("no");
+noBtn.addEventListener("touchstart",moveButton);
+noBtn.addEventListener("mouseover",moveButton);
+
+function moveButton(){
+    noBtn.style.position="absolute";
+    noBtn.style.top=Math.random()*(window.innerHeight-60)+"px";
+    noBtn.style.left=Math.random()*(window.innerWidth-100)+"px";
+}
+
+// YES CLICK
+function celebrate(){
+    document.getElementById("letter").style.display="block";
+}
+</script>
+
+</body>
+</html>
